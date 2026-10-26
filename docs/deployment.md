@@ -11,10 +11,14 @@ The public task tracker and product specification are now accessible in the repo
 The user has now authorized the free public GitHub Pages project site at
 `https://jiaruitang.github.io/my-journal/`. Only this repository's Pages settings
 are configured, using GitHub Actions and enforced HTTPS. Publication and live
-verification are pending; the configured URL is not yet claimed as working.
+verification succeeded on 2026-10-26 in
+[CI/CD run 40402578924](https://github.com/JiaruiTang/my-journal/actions/runs/40402578924)
+for commit `852c0d6`. The [public demo](https://jiaruitang.github.io/my-journal/)
+returns HTTP 200 without authentication. Four desktop/mobile browser tests also
+passed independently against the live URL from the local machine.
 
 The personal-site root `https://jiaruitang.github.io/` must remain HTTP 404.
-It was checked before deployment and currently returns 404. Do not change the
+It was checked before and after deployment and returns 404. Do not change the
 personal website's repository or settings. A read-only guard checks the root before
 and after every project deployment; it fails if the root is anything other than 404.
 
@@ -54,8 +58,12 @@ cd ..
 python3 scripts/check_personal_site.py
 ```
 
-Deployment is not complete until step 4 succeeds. A successful local preview is
-not public deployment evidence. Static site changes remain local to each browser.
+All five deployment steps above have been completed and verified. Live browser
+checks used fresh contexts without saved authentication, tested creation, full
+entry viewing, edits, moods, milestones, timeline, refresh, deletion confirmation,
+home-link path, mobile overflow, and separate reviewers. The demo made no journal
+API requests. Public JS/CSS/favicon assets returned 200 and matched the locally
+verified build byte for byte. The personal root remained 404 after those checks.
 
 ## Full-stack hosting configuration
 

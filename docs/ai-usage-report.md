@@ -13,6 +13,8 @@ workspace was inspected and was empty; no earlier implementation was assumed.
 | Developer / T3–T4 | Notebook design direction and demo-isolation requirement | Generated shared React components and API/browser-local storage adapters; no real journal content used |
 | Tester / T5–T6 | Acceptance gates | Complete suite exited 0: 31 backend, 15 frontend, 6 browser tests and restart smoke. Production demo artifact separately passed 4 browser tests; see verification.md |
 | Reviewer / T8 | Code, failed test output, screenshots | Checked request payloads, migration idempotence, storage isolation, error handling, responsive layouts, and staged files |
+| Developer / T9 | User-selected Pages path and personal-site privacy requirement | Fixed base-relative assets/home navigation, added CI-gated Pages deployment and read-only root-404 guard |
+| Tester / T9 | Real public HTTPS URL, fresh browser contexts | CI/CD and 4 independent desktop/mobile live tests passed; public assets matched local build; personal root remained 404 |
 
 ## Failures and corrections
 
@@ -37,9 +39,9 @@ One Codex agent performed the logical roles sequentially. There were no delegate
 subagents, independent AI reviewers, or human sign-offs. Tests are executable
 deterministic checks; screenshot inspection is the same agent's visual review.
 No real private journal data, production credentials, or complete conversation transcripts were saved.
-The authorized repository push and successful remote CI run are verified in
-verification.md. No GitHub Issues, public application deployment, or incident
-recovery is claimed.
+The authorized repository push, public deployment, anonymous browser checks, and
+successful remote CI/CD runs are verified in verification.md. No GitHub Issues or
+on-call incident recovery is claimed.
 
 ## Commits
 
@@ -50,3 +52,7 @@ the final artifact verification. After the user created the repository and expli
 authorized publishing, `main` through `c0ee6d9` was pushed to `JiaruiTang/my-journal`.
 GitHub Actions run 40398639362 passed for that exact commit. Inspect `git log` and
 the linked remote workflow for the authoritative history and execution evidence.
+
+`852c0d6` — Deploy isolated reviewer demo to GitHub Pages and guard personal-site
+privacy. [CI/CD run 40402578924](https://github.com/JiaruiTang/my-journal/actions/runs/40402578924)
+passed, including the actual Pages deployment and live browser/privacy checks.

@@ -8,6 +8,9 @@ milestones form a chronological Growth Timeline using the same records.
 
 Built for the [DataTalksClub AI Dev Tools Zoomcamp final project](https://github.com/DataTalksClub/ai-dev-tools-zoomcamp/blob/main/project/README.md).
 
+**[Open the live demo — no account required](https://jiaruitang.github.io/my-journal/).**
+Start with fictional examples; your changes stay in your own browser.
+
 ![My Journal browser-local demo with fictional entries](docs/images/journal-desktop.png)
 
 ## Try it locally
@@ -42,10 +45,10 @@ and keeps that volume. Do not remove the volume if you want to retain entries.
 
 ## Reviewer demo and privacy
 
-**Public HTTPS URL: not deployed.** The user-created public repository is
-[JiaruiTang/my-journal](https://github.com/JiaruiTang/my-journal); the committed
-project is published on `main`. Hosting is not yet designated.
-See [deployment instructions](docs/deployment.md).
+**Verified public HTTPS demo:** [jiaruitang.github.io/my-journal/](https://jiaruitang.github.io/my-journal/).
+It is hosted on GitHub Pages without an account or access token. The source is
+[JiaruiTang/my-journal](https://github.com/JiaruiTang/my-journal). See
+[deployment instructions and privacy checks](docs/deployment.md).
 
 The static production demo uses the **same React application** with a browser-local
 storage adapter. It starts with fictional examples and requires no account. Each
@@ -124,7 +127,8 @@ clears its category. Unknown fields and null required fields are rejected.
 `frontend/`: React, TypeScript, Vite, Tailwind, Vitest, Playwright.
 `backend/`: FastAPI, SQLAlchemy, Alembic, PostgreSQL, Pytest.
 `compose.yaml`: complete local runtime; `compose.test.yaml`: isolated integration tests.
-`.github/workflows/ci.yml`: PR/main tests and browser evidence upload.
+`.github/workflows/ci.yml`: PR/main tests, gated Pages deployment, live anonymous
+browser checks, personal-root visibility checks, and browser evidence upload.
 
 For backend changes use Python 3.13 and `backend/requirements.lock.txt`; direct
 dependencies are listed in `backend/requirements.txt`. For frontend changes use
@@ -137,7 +141,8 @@ dependencies are listed in `backend/requirements.txt`. For frontend changes use
 - [Rubric compliance](docs/rubric-compliance.md)
 - [Deployment and rollback](docs/deployment.md)
 
-The [initial GitHub Actions run passed](https://github.com/JiaruiTang/my-journal/actions/runs/40398639362)
-for implementation commit `c0ee6d9`. CI runs the full suite on `main` pushes and pull
-requests. Advanced metrics/traces, alerts, and an on-call agent are not implemented.
-The student must complete the course submission and three peer reviews separately.
+The [first complete CI/CD run passed](https://github.com/JiaruiTang/my-journal/actions/runs/40402578924)
+for deployment commit `852c0d6`, including public desktop/mobile CRUD and isolation
+checks. Main pushes deploy after tests; PRs run tests without deployment.
+Advanced metrics/traces, alerts, and an on-call agent are not implemented. The
+student must complete the course submission and three peer reviews separately.

@@ -88,10 +88,10 @@ access tokens are embedded in the compiled demo JavaScript.
 
 ## Unverified / external
 
-The public repository contains the committed implementation and remote CI passed
-as recorded below. No public HTTPS deployment,
-deployment rollback execution, metrics/traces UI, alert delivery, on-call agent,
-or completed peer reviews is claimed. Public submission readiness remains partial.
+The public repository, public HTTPS demo, remote CI/CD, and anonymous reviewer
+flows are verified below. No actual rollback execution, metrics/traces UI, alert
+delivery, on-call agent, course submission, or completed peer reviews is claimed.
+These advanced rubric features were deferred to prioritize today's working MVP.
 
 ## GitHub publication and CI
 
@@ -110,6 +110,40 @@ was also verified through GitHub's contents API.
 This documentation follow-up records the verified implementation run. Subsequent
 commits trigger their own checks; the chat handoff reports the final observed run.
 
+## Public deployment and personal-site privacy
+
+**Verified demo:** https://jiaruitang.github.io/my-journal/
+
+The user explicitly selected this project site and required the personal website
+at https://jiaruitang.github.io/ to remain HTTP 404. Only `my-journal` Pages was
+configured, with workflow publishing and enforced HTTPS; no personal repository,
+root-site setting, custom domain, or paid resource was changed.
+
+Commit `852c0d6afdfb859f3d0a1e0d35ca29c9d4fc08d1` was published by
+[CI/CD run 40402578924](https://github.com/JiaruiTang/my-journal/actions/runs/40402578924).
+Both `test` and `deploy-demo` jobs completed with **success**. The deployment job
+ran production browser tests under `/my-journal/`, the pre-publication root guard,
+the actual Pages deployment, live public browser tests, and the post-publication
+root guard. All those named steps succeeded; browser evidence was uploaded.
+
+Independent checks from the local machine, after the GitHub deployment:
+
+| Check | Observed result |
+| --- | --- |
+| Anonymous HTTPS GET /my-journal/ | 200, My Journal HTML; no redirect to sign-in |
+| Public favicon, JavaScript, and CSS | 200, expected content types, byte-identical to locally tested production assets |
+| `E2E_BASE_URL=https://jiaruitang.github.io/my-journal/ npm run test:e2e` | 4 passed on desktop/mobile, fresh browser contexts, no saved authentication |
+| Public flows | Create, complete view, mood, edit, milestone, timeline, refresh, deletion cancellation/confirmation, home-link path |
+| Demo isolation | Second browser context cannot see the first context's new entry; no journal API requests |
+| Personal-site root before deployment | 404 |
+| Personal-site root after deployment and independent live tests | 404 |
+| Existing local Docker services | All three still healthy; frontend remains loopback-only |
+
+The live screenshot was visually inspected. Demo data is fictional and changes
+stay in each reviewer's browser profile/origin until site data is cleared. The
+private PostgreSQL-backed notebook remains a separate local execution mode in the
+same codebase; no private records or API tokens are part of the static deployment.
+
 ## Local handoff and remaining user actions
 
 Implementation is committed as `e69d276`; the subsequent documentation-only commit
@@ -118,10 +152,13 @@ the development token documented in README. Start again with `docker compose up 
 
 1. Completed: the user-created public repository contains the committed project,
    the authorized push succeeded, and the initial GitHub Actions run passed.
-2. Designate and authorize an existing static hosting account/project for the demo.
-   Deploy the prepared artifact or connect the repository using netlify.toml.
-3. Verify the public HTTPS URL in two separate browser contexts: create, view, edit,
-   milestone/timeline, refresh, delete/cancel. Confirm no journal API requests or
-   shared data. Update README, deployment evidence, and rubric status with the URL.
-4. Submit the public repository/demo through the course platform and complete its
-   three required peer reviews. No course submission or peer review was performed here.
+2. Completed: the authorized free GitHub Pages demo is public, anonymous desktop/
+   mobile flows passed, and the personal-site root remains 404.
+3. Completed: README, deployment instructions, task tracker, and rubric report
+   contain the verified demo URL and evidence.
+4. Submit the public repository and demo URLs through the course platform, then
+   complete its three required peer reviews. Those remain student responsibilities.
+
+Technical MVP readiness: **Ready for reviewer access**, with the browser-local demo
+storage boundary explicitly documented. No external implementation/deployment
+blocker remains; advanced optional rubric work is not implemented.
