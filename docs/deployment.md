@@ -2,14 +2,13 @@
 
 ## Current publication state
 
-The user created and designated the public repository
-[JiaruiTang/my-journal](https://github.com/JiaruiTang/my-journal), then explicitly
-authorized pushing committed `main` and verifying GitHub Actions. The initial push
-succeeded, remote `main` matched local commit `c0ee6d9`, and the
+The public source repository is
+[JiaruiTang/my-journal](https://github.com/JiaruiTang/my-journal). The initial push
+published `main` at commit `c0ee6d9`, and the
 [first CI run passed](https://github.com/JiaruiTang/my-journal/actions/runs/40398639362).
 The public task tracker and product specification are now accessible in the repository.
-The user has now authorized the free public GitHub Pages project site at
-`https://jiaruitang.github.io/my-journal/`. Only this repository's Pages settings
+The public demo runs at `https://jiaruitang.github.io/my-journal/` on GitHub Pages.
+Only this repository's Pages settings
 are configured, using GitHub Actions and enforced HTTPS. Publication and live
 verification succeeded on 2026-10-26 in
 [CI/CD run 40402578924](https://github.com/JiaruiTang/my-journal/actions/runs/40402578924)
@@ -22,14 +21,14 @@ It was checked before and after deployment and returns 404. Do not change the
 personal website's repository or settings. A read-only guard checks the root before
 and after every project deployment; it fails if the root is anything other than 404.
 
-## Deadline deployment: static reviewer demo
+## Public reviewer demo deployment
 
-The handoff explicitly permits a browser-local demo alongside a fully functioning
-PostgreSQL local stack. This keeps anonymous reviewers isolated without accounts.
-The same frontend components and contracts are used in both modes.
+The browser-local demo provides anonymous access alongside the PostgreSQL-backed
+local application. Browser contexts keep demo records isolated without accounts.
+Both execution modes use the same frontend components and data contracts.
 
 1. Completed: the public repository is configured as `origin`; the verified project
-   and task tracker are published on `main` with explicit user authorization.
+   and task tracker are published on `main`.
 2. Completed: remote commit equality and a successful GitHub Actions test run were
    verified. Continue checking CI after subsequent source changes.
 3. Main pushes run the full test job, then build `frontend/dist` with

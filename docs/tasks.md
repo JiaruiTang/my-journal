@@ -14,6 +14,7 @@ Statuses are evidence-based. This tracker is published in the public GitHub repo
 | T7 | CI config, production config, rollback and reproduction instructions | Verified: full CI/CD passed; public Pages demo and documented rollback/reproduction |
 | T8 | Review code, verify evidence, commit; publish only if authorized | Verified: local review, authorized main push, matching remote SHA, and successful GitHub Actions run |
 | T9 | Deploy anonymous HTTPS demo only under /my-journal/; preserve personal root HTTP 404 | Verified: deployment, 4 public browser checks and before/after 404 guards passed |
+| T10 | Prepare submission links, verified commit evidence, form fields and rubric gaps | Complete: docs/submission.md; certificate details and project hours remain participant-entered |
 
 The first API browser run caught rejected edit metadata. The write contract was
 fixed and retested. Review also caught repeat seeding; migration 0002 and a regression

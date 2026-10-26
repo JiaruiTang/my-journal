@@ -1,24 +1,26 @@
 # Git workflow
 
-This workspace begins empty with no designated remote repository. Local Git
-initialization and local commits are authorized by the execution objective.
-Use main, review the staged diff for secrets/runtime data, and commit meaningful
-tested increments. Do not push, merge, rebase, or create an external repository
-without explicit authorization. A GitHub remote must be supplied/approved by the
-user before publishing. Do not fabricate a remote URL or CI execution.
+## Repository and branch
 
-## Current destination
+The source repository is `https://github.com/JiaruiTang/my-journal.git`.
+The default branch is `main`, and the local remote is `origin`. Implementation
+and documentation changes are committed as reviewable increments. Test results,
+public runtime checks, and remote commit hashes provide verification evidence.
 
-The user created and designated `https://github.com/JiaruiTang/my-journal.git`,
-then explicitly authorized pushing the committed `main` branch and verifying
-GitHub Actions. It is configured as local `origin`; the initial push succeeded.
-Routine CI fixes and evidence updates for this bounded publication task can be
-committed and pushed there. The user subsequently authorized deploying a free,
-public HTTPS reviewer demo for today's deadline. This includes the GitHub Pages
-project site, required deployment configuration, and pushes to this repository.
-Paid resources and unrelated repositories remain unauthorized.
+## Publication scope
 
-The user explicitly selected `https://jiaruitang.github.io/my-journal/` and requires
-`https://jiaruitang.github.io/` to remain HTTP 404. Only the `my-journal` repository's
-Pages configuration may be managed. Do not modify or publish the personal-site
-repository, root-site settings, or custom-domain configuration.
+Publication approval covers pushes to this repository and the free GitHub Pages
+project site at `https://jiaruitang.github.io/my-journal/`, including CI fixes and
+deployment evidence. Paid resources and unrelated repositories are outside scope.
+
+The account root `https://jiaruitang.github.io/` must remain HTTP 404. Deployment
+changes are limited to the `my-journal` repository's Pages configuration. The
+personal-site repository, root-site settings, and custom domains remain unchanged.
+
+## Change controls
+
+Review staged changes for secrets and runtime data before committing. Merge,
+rebase, force-push, destructive changes, paid services, and publication to another
+destination require separate approval. AGENTS.md remains the root development
+instruction file. Documentation-only submission preparation does not authorize
+saving a course submission or completing peer reviews on the participant's behalf.

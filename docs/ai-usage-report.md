@@ -1,19 +1,19 @@
 # AI-assisted development report
 
 Date: 2026-10-26 (America/New_York). Tool: Codex in the local workspace.
-The user supplied a product handoff and an unattended execution objective. The
-workspace was inspected and was empty; no earlier implementation was assumed.
+Development used a product brief, written acceptance criteria, architecture notes,
+and the official course rubric. The initial workspace contained no implementation.
 
 ## Representative work
 
 | Role/task | Context used | Work and observed evidence |
 | --- | --- | --- |
-| Planner / T1 | User handoff, goal, official course rubric | Wrote PRD and acceptance criteria before application code, architecture, roles, Git workflow, and local tracker |
+| Planner / T1 | Product brief and official course rubric | Wrote PRD and acceptance criteria before application code, architecture, roles, Git workflow, and local tracker |
 | Developer / T2 | PRD API contract and privacy boundary | Generated FastAPI CRUD, SQLAlchemy model, database constraints, Alembic migrations, token protection, and safe error responses |
 | Developer / T3–T4 | Notebook design direction and demo-isolation requirement | Generated shared React components and API/browser-local storage adapters; no real journal content used |
 | Tester / T5–T6 | Acceptance gates | Complete suite exited 0: 31 backend, 15 frontend, 6 browser tests and restart smoke. Production demo artifact separately passed 4 browser tests; see verification.md |
 | Reviewer / T8 | Code, failed test output, screenshots | Checked request payloads, migration idempotence, storage isolation, error handling, responsive layouts, and staged files |
-| Developer / T9 | User-selected Pages path and personal-site privacy requirement | Fixed base-relative assets/home navigation, added CI-gated Pages deployment and read-only root-404 guard |
+| Developer / T9 | Project-site deployment path and root-site visibility boundary | Fixed base-relative assets/home navigation, added CI-gated Pages deployment and read-only root-404 guard |
 | Tester / T9 | Real public HTTPS URL, fresh browser contexts | CI/CD and 4 independent desktop/mobile live tests passed; public assets matched local build; personal root remained 404 |
 
 ## Failures and corrections
@@ -48,8 +48,8 @@ on-call incident recovery is claimed.
 `e69d276` — Build verified My Journal MVP with PostgreSQL and isolated reviewer demo.
 Includes application, tests, migrations, Docker, CI, production configuration, and
 documentation. A subsequent documentation-only commit records this reference and
-the final artifact verification. After the user created the repository and explicitly
-authorized publishing, `main` through `c0ee6d9` was pushed to `JiaruiTang/my-journal`.
+the final artifact verification. Repository creation and publication approval
+preceded the push of `main` through `c0ee6d9` to `JiaruiTang/my-journal`.
 GitHub Actions run 40398639362 passed for that exact commit. Inspect `git log` and
 the linked remote workflow for the authoritative history and execution evidence.
 

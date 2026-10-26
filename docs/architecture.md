@@ -1,6 +1,6 @@
 # Architecture
 
-## Confirmed implementation direction
+## Application structure
 
 React uses one `EntryStore` contract. The API adapter connects to same-origin
 `/api` through Nginx (Docker) or Vite (development). The demo adapter uses localStorage
@@ -38,8 +38,8 @@ The same frontend builds as a static browser-local demo. The full stack can be
 deployed to a Docker-capable host with PostgreSQL and a private API configuration.
 See deployment.md for configuration, smoke checks, rollback, and authorization gates.
 
-For the deadline, the authorized public target is the free GitHub Pages project
-site at `/my-journal/`. `VITE_BASE_PATH` selects that path for static assets and the
+The public demo runs on the GitHub Pages project site at `/my-journal/`.
+`VITE_BASE_PATH` selects that path for static assets and the
 home link, while Docker keeps `/`. Deployment is gated by the full CI test job and
 production browser tests under the subpath; live anonymous browser tests run after
 publication. No FastAPI service or private PostgreSQL data is deployed to Pages.

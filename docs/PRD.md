@@ -1,12 +1,12 @@
-# Product specification
+# My Journal Product Specification
 
-## Problem and intended user
+## Purpose
 
-People need a quiet place to record everyday experiences and revisit moments of
-growth. My Journal provides a notebook-like journal and an optional milestone
-timeline. Course reviewers can try fictional entries without an account.
+My Journal records everyday experiences and presents selected moments in a
+chronological Growth Timeline. The notebook-style interface supports personal
+reflection. The public demo contains fictional entries and requires no account.
 
-## Confirmed scope
+## Features
 
 - Journal cards ordered by entry date descending, deterministic tie ordering.
 - Create, read, edit, and delete with confirmation; title, content, date, optional mood.
@@ -17,7 +17,7 @@ timeline. Course reviewers can try fictional entries without an account.
 - Warm cream paper, restrained rust/sage accents, readable typography, responsive UI.
 - Public demo uses browser-local fictional data, with explicit persistence labeling.
 
-## Acceptance criteria (specified before implementation)
+## Acceptance criteria
 
 1. Journal opens with a useful empty state or cards; complete contents open accessibly.
 2. Valid entry creates immediately and survives refresh in its selected storage mode.
@@ -42,12 +42,12 @@ timeline. Course reviewers can try fictional entries without an account.
     `https://jiaruitang.github.io/` must continue returning HTTP 404, verified before
     and after publication. Do not change the personal website's repository/settings.
 
-## Non-goals
+## Scope exclusions
 
 Accounts, cloud synchronization, AI analysis, attachments, search, social features,
 and advanced observability are outside the delivery MVP.
 
-## External gates
+## Publication and course completion
 
 Public repository publishing and cloud deployment require an authorized destination.
 Peer reviews and final course submission remain the student's responsibility.

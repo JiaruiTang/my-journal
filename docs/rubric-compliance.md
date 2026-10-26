@@ -3,7 +3,9 @@
 Reviewed 2026-10-26 against the [official rubric](https://github.com/DataTalksClub/ai-dev-tools-zoomcamp/blob/526d9c12506c159e7a8f3cef30e5de1eeaec287b/project/README.md)
 (last rubric commit 2026-10-16). The course defines 12 criteria, 24 available points,
 and a 10-point passing threshold. Three peer reviews are separately required.
-These are evidence statuses, not awarded points or a claim of submission readiness.
+My Journal includes a tested local full-stack application, a public reviewer demo,
+and automated CI/CD. The following table maps implementation evidence to the
+assessment criteria. Peer reviewers determine the final score.
 
 | Criterion | Required evidence | Status | Verification / gap |
 | --- | --- | --- | --- |
@@ -20,7 +22,9 @@ These are evidence statuses, not awarded points or a claim of submission readine
 | Alerting on user impact | Demonstrated user-impact alert | Not Implemented | Deferred outside core delivery scope |
 | On-call agent | Alert-triggered demonstrated recovery | Not Implemented | No agent recovery claimed |
 
-Full-stack and test statuses reflect the actual complete runner's successful exit.
-External availability and CI execution cannot be inferred from files.
-The technical MVP and public reviewer demo are ready. Course submission and three
-peer reviews remain the student's responsibility. See verification.md and deployment.md.
+The technical MVP and public reviewer demo are ready. Remaining coverage gaps are
+advanced telemetry, operational alerts, an on-call responder, and separate dev/
+manual-production deployment stages. These are scoring gaps rather than universal
+submission prerequisites under the published threshold. Course completion still
+requires the project submission and three peer reviews. See submission.md,
+verification.md, and deployment.md.

@@ -1,16 +1,16 @@
 # Agent roles and process
 
-These roles are performed sequentially by the same Codex agent. No independent
-agents or human review are implied.
+Development follows Planner, Developer, Tester, and Reviewer roles in sequence.
+One Codex agent performed these roles; independent agents and human review are
+not part of the recorded workflow.
 
 | Role | Responsibility | Handoff evidence |
 | --- | --- | --- |
-| Planner | Read handoff/current rubric, set scope and acceptance | PRD, architecture, tasks |
+| Planner | Define scope and acceptance criteria against the product brief and course rubric | PRD, architecture, tasks |
 | Developer | Implement selected task with minimal dependencies | Code and local commits |
 | Tester | Execute behavior, persistence and error-path checks | Commands and actual outputs |
 | Reviewer | Inspect privacy, regressions, accessibility and evidence gaps | AI usage report, fixes |
 
-Read task acceptance criteria before implementing. Update the tracker based on
-observed tests, record failures and repairs, and do not mark external gates complete
-because configuration files exist. Local tracker can become public when the
-repository is authorized for publication.
+The public tracker in docs/tasks.md links implementation tasks to acceptance
+criteria. Verification records contain executed commands, failures, and repairs.
+Deployment status follows actual runtime checks rather than configuration presence.

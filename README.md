@@ -1,19 +1,17 @@
 # My Journal
 
-*Every day deserves a page. Every experience becomes part of your story.*
-
-A quiet, notebook-inspired web app for recording ordinary moments, emotions,
+A personal journaling web application for recording ordinary moments, emotions,
 achievements, challenges, and reflections. Entries appear newest first; selected
 milestones form a chronological Growth Timeline using the same records.
 
 Built for the [DataTalksClub AI Dev Tools Zoomcamp final project](https://github.com/DataTalksClub/ai-dev-tools-zoomcamp/blob/main/project/README.md).
 
 **[Open the live demo — no account required](https://jiaruitang.github.io/my-journal/).**
-Start with fictional examples; your changes stay in your own browser.
+The demo contains fictional examples and stores entries in the browser.
 
 ![My Journal browser-local demo with fictional entries](docs/images/journal-desktop.png)
 
-## Try it locally
+## Local execution
 
 Prerequisite: running Docker with Docker Compose v2. From the repository root:
 
@@ -35,7 +33,7 @@ Only the frontend is bound to the host, on loopback. Entries live in a named Doc
 volume and survive container restarts. `docker compose down` stops the application
 and keeps that volume. Do not remove the volume if you want to retain entries.
 
-## What you can do
+## Journal and Growth Timeline
 
 - Create a dated entry with a title, thoughts, and optional mood.
 - Open the full entry, edit it, and delete it after confirmation.
@@ -75,7 +73,7 @@ Open http://127.0.0.1:4173. The script creates a deployable static folder and ta
 It does not publish anything. A frontend build defaults to demo mode; the Docker
 frontend explicitly builds with `VITE_STORAGE_MODE=api`.
 
-## Run all tests
+## Automated verification
 
 Prerequisites: Docker Compose, Node.js 22.18+, npm, Python 3.11+, and network access
 for initial dependency/browser downloads. No local PostgreSQL installation needed.
@@ -140,6 +138,7 @@ dependencies are listed in `backend/requirements.txt`. For frontend changes use
 - [Git workflow](docs/git-workflow.md), [AI usage report](docs/ai-usage-report.md)
 - [Rubric compliance](docs/rubric-compliance.md)
 - [Deployment and rollback](docs/deployment.md)
+- [Zoomcamp submission and reviewer guide](docs/submission.md)
 
 The [first complete CI/CD run passed](https://github.com/JiaruiTang/my-journal/actions/runs/40402578924)
 for deployment commit `852c0d6`, including public desktop/mobile CRUD and isolation

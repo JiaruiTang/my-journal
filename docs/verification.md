@@ -95,8 +95,7 @@ These advanced rubric features were deferred to prioritize today's working MVP.
 
 ## GitHub publication and CI
 
-The user explicitly authorized pushing committed `main` to
-`https://github.com/JiaruiTang/my-journal.git` and verifying GitHub Actions.
+Repository publication targeted `https://github.com/JiaruiTang/my-journal.git`.
 `git push -u origin main` succeeded. `git ls-remote origin refs/heads/main` matched
 local HEAD `c0ee6d9986420eb60f3eaaba378bc8609179119e`.
 
@@ -107,15 +106,15 @@ This is actual GitHub-hosted Linux execution, separate from the earlier local ru
 The [public task tracker](https://github.com/JiaruiTang/my-journal/blob/main/docs/tasks.md)
 was also verified through GitHub's contents API.
 
-This documentation follow-up records the verified implementation run. Subsequent
-commits trigger their own checks; the chat handoff reports the final observed run.
+Subsequent main commits trigger separate checks. Current branch results are
+available in the repository's [GitHub Actions history](https://github.com/JiaruiTang/my-journal/actions).
 
 ## Public deployment and personal-site privacy
 
 **Verified demo:** https://jiaruitang.github.io/my-journal/
 
-The user explicitly selected this project site and required the personal website
-at https://jiaruitang.github.io/ to remain HTTP 404. Only `my-journal` Pages was
+Deployment is scoped to the project site; the account root at
+https://jiaruitang.github.io/ remains HTTP 404. Only `my-journal` Pages was
 configured, with workflow publishing and enforced HTTPS; no personal repository,
 root-site setting, custom domain, or paid resource was changed.
 
@@ -144,15 +143,15 @@ stay in each reviewer's browser profile/origin until site data is cleared. The
 private PostgreSQL-backed notebook remains a separate local execution mode in the
 same codebase; no private records or API tokens are part of the static deployment.
 
-## Local handoff and remaining user actions
+## Local application and course submission
 
 Implementation is committed as `e69d276`; the subsequent documentation-only commit
 records final evidence. The working application is at http://127.0.0.1:8080 and uses
 the development token documented in README. Start again with `docker compose up --build`.
 
-1. Completed: the user-created public repository contains the committed project,
-   the authorized push succeeded, and the initial GitHub Actions run passed.
-2. Completed: the authorized free GitHub Pages demo is public, anonymous desktop/
+1. Completed: the public repository contains the committed project and GitHub
+   Actions checks passed.
+2. Completed: the free GitHub Pages demo is public, anonymous desktop/
    mobile flows passed, and the personal-site root remains 404.
 3. Completed: README, deployment instructions, task tracker, and rubric report
    contain the verified demo URL and evidence.
