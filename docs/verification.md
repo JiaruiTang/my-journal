@@ -98,8 +98,10 @@ Implementation is committed as `e69d276`; the subsequent documentation-only comm
 records final evidence. The working application is at http://127.0.0.1:8080 and uses
 the development token documented in README. Start again with `docker compose up --build`.
 
-1. Designate an empty public GitHub repository URL and authorize pushing to that
-   exact destination. Then publish main and verify the GitHub Actions run.
+1. The user has now designated `JiaruiTang` and authorized repository creation.
+   Complete GitHub authentication so Codex can create the proposed public
+   `JiaruiTang/my-journal` repository. Authorize pushing the verified project to
+   that exact destination; then publish main and verify the GitHub Actions run.
 2. Designate and authorize an existing static hosting account/project for the demo.
    Deploy the prepared artifact or connect the repository using netlify.toml.
 3. Verify the public HTTPS URL in two separate browser contexts: create, view, edit,
