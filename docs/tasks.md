@@ -1,7 +1,7 @@
 # Task tracker
 
 Created before implementation, used by the sequential roles in docs/agents.md.
-Statuses are evidence-based; public availability is blocked until repository publishing.
+Statuses are evidence-based. This tracker is published in the public GitHub repository.
 
 | ID | Task and acceptance | Status |
 | --- | --- | --- |
@@ -11,8 +11,8 @@ Statuses are evidence-based; public availability is blocked until repository pub
 | T4 | Isolated fictional browser demo; refresh and separate-context verification | Verified: unit and browser isolation checks; no demo API requests |
 | T5 | Compose starts all services; health and persistence verified | Verified: full build, three healthy services, restart persistence smoke |
 | T6 | Single-command unit/integration/frontend/browser suite passes | Verified: scripts/test.sh exit 0; 31 backend + 15 frontend + 6 browser tests |
-| T7 | CI config, production config, rollback and reproduction instructions | Partial: configuration and local checks complete; remote CI/deployment blocked |
-| T8 | Review code, verify evidence, commit; publish only if authorized | Verified locally: implementation commit e69d276; remote publishing blocked |
+| T7 | CI config, production config, rollback and reproduction instructions | Partial: remote CI passed; production configuration/rollback documented; public hosting blocked |
+| T8 | Review code, verify evidence, commit; publish only if authorized | Verified: local review, authorized main push, matching remote SHA, and successful GitHub Actions run |
 
 The first API browser run caught rejected edit metadata. The write contract was
 fixed and retested. Review also caught repeat seeding; migration 0002 and a regression

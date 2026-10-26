@@ -1,14 +1,15 @@
 # Deployment and rollback
 
-## Current external blocker
+## Current publication state
 
 The user created and designated the public repository
-[JiaruiTang/my-journal](https://github.com/JiaruiTang/my-journal). Its empty state was
-verified with `git ls-remote`, and the local `origin` points to its HTTPS clone URL.
-`git push --dry-run origin main` succeeded using available Git credentials; this
-did not upload commits or create a remote branch. Explicit push approval required by
-the handoff and an authorized hosting destination remain outstanding. No cloud
-resources were provisioned and no deployed application URL is claimed. The available Sites hosting
+[JiaruiTang/my-journal](https://github.com/JiaruiTang/my-journal), then explicitly
+authorized pushing committed `main` and verifying GitHub Actions. The initial push
+succeeded, remote `main` matched local commit `c0ee6d9`, and the
+[first CI run passed](https://github.com/JiaruiTang/my-journal/actions/runs/40398639362).
+The public task tracker and product specification are now accessible in the repository.
+An authorized hosting destination is still outstanding. No cloud hosting resources
+were provisioned and no deployed application URL is claimed. The available Sites hosting
 runtime is Cloudflare Workers and cannot host this Python/PostgreSQL stack directly;
 it can host the browser-local demo once a destination/publication is authorized.
 
@@ -18,10 +19,10 @@ The handoff explicitly permits a browser-local demo alongside a fully functionin
 PostgreSQL local stack. This keeps anonymous reviewers isolated without accounts.
 The same frontend components and contracts are used in both modes.
 
-1. The public repository exists and is configured as `origin`. Local implementation,
-   tests, and evidence are committed; the publication preflight passed.
-2. Authorize pushing `main` to `https://github.com/JiaruiTang/my-journal.git`.
-   After approval, push and verify the remote commit and GitHub Actions results.
+1. Completed: the public repository is configured as `origin`; the verified project
+   and task tracker are published on `main` with explicit user authorization.
+2. Completed: remote commit equality and a successful GitHub Actions test run were
+   verified. Continue checking CI after subsequent source changes.
 3. Choose an existing approved static host/account. `netlify.toml` supplies the
    build command, output directory, demo environment, redirects and security headers,
    following [Netlify's file configuration reference](https://docs.netlify.com/build/configure-builds/file-based-configuration/).

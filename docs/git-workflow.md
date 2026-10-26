@@ -9,6 +9,8 @@ user before publishing. Do not fabricate a remote URL or CI execution.
 
 ## Current destination
 
-The user created and designated `https://github.com/JiaruiTang/my-journal.git`.
-It is configured as local `origin`; a push dry-run passed. Explicit approval to
-upload `main` is still required by the user's original handoff before publishing.
+The user created and designated `https://github.com/JiaruiTang/my-journal.git`,
+then explicitly authorized pushing the committed `main` branch and verifying
+GitHub Actions. It is configured as local `origin`; the initial push succeeded.
+Routine CI fixes and evidence updates for this bounded publication task can be
+committed and pushed there. This does not authorize other repositories or hosting.

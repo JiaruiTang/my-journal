@@ -43,8 +43,8 @@ and keeps that volume. Do not remove the volume if you want to retain entries.
 ## Reviewer demo and privacy
 
 **Public HTTPS URL: not deployed.** The user-created public repository is
-[JiaruiTang/my-journal](https://github.com/JiaruiTang/my-journal); project contents
-are prepared locally and awaiting push approval. Hosting is not yet designated.
+[JiaruiTang/my-journal](https://github.com/JiaruiTang/my-journal); the committed
+project is published on `main`. Hosting is not yet designated.
 See [deployment instructions](docs/deployment.md).
 
 The static production demo uses the **same React application** with a browser-local
@@ -137,6 +137,7 @@ dependencies are listed in `backend/requirements.txt`. For frontend changes use
 - [Rubric compliance](docs/rubric-compliance.md)
 - [Deployment and rollback](docs/deployment.md)
 
-CI has not run remotely until the repository is published. Advanced metrics/traces,
-alerts, and an on-call agent are not implemented. The student must complete the
-course submission and three peer reviews separately.
+The [initial GitHub Actions run passed](https://github.com/JiaruiTang/my-journal/actions/runs/40398639362)
+for implementation commit `c0ee6d9`. CI runs the full suite on `main` pushes and pull
+requests. Advanced metrics/traces, alerts, and an on-call agent are not implemented.
+The student must complete the course submission and three peer reviews separately.

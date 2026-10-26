@@ -37,12 +37,16 @@ One Codex agent performed the logical roles sequentially. There were no delegate
 subagents, independent AI reviewers, or human sign-offs. Tests are executable
 deterministic checks; screenshot inspection is the same agent's visual review.
 No real private journal data, production credentials, or complete conversation transcripts were saved.
-No GitHub Issues, remote CI runs, public deployment, or incident recovery is fabricated.
+The authorized repository push and successful remote CI run are verified in
+verification.md. No GitHub Issues, public application deployment, or incident
+recovery is claimed.
 
 ## Commits
 
 `e69d276` — Build verified My Journal MVP with PostgreSQL and isolated reviewer demo.
 Includes application, tests, migrations, Docker, CI, production configuration, and
 documentation. A subsequent documentation-only commit records this reference and
-the final artifact verification. No remote push occurred; inspect `git log` for
-the authoritative local history.
+the final artifact verification. After the user created the repository and explicitly
+authorized publishing, `main` through `c0ee6d9` was pushed to `JiaruiTang/my-journal`.
+GitHub Actions run 40398639362 passed for that exact commit. Inspect `git log` and
+the linked remote workflow for the authoritative history and execution evidence.

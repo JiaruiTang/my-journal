@@ -88,10 +88,27 @@ access tokens are embedded in the compiled demo JavaScript.
 
 ## Unverified / external
 
-The user-created public repository URL is verified, but implementation commits have
-not been uploaded. No public HTTPS deployment, remote GitHub Actions run,
+The public repository contains the committed implementation and remote CI passed
+as recorded below. No public HTTPS deployment,
 deployment rollback execution, metrics/traces UI, alert delivery, on-call agent,
 or completed peer reviews is claimed. Public submission readiness remains partial.
+
+## GitHub publication and CI
+
+The user explicitly authorized pushing committed `main` to
+`https://github.com/JiaruiTang/my-journal.git` and verifying GitHub Actions.
+`git push -u origin main` succeeded. `git ls-remote origin refs/heads/main` matched
+local HEAD `c0ee6d9986420eb60f3eaaba378bc8609179119e`.
+
+[Verify My Journal — run 40398639362](https://github.com/JiaruiTang/my-journal/actions/runs/40398639362)
+completed with conclusion **success** for that exact SHA on 2026-10-26. Its `test`
+job succeeded, including `Run ./scripts/test.sh` and the browser-evidence upload.
+This is actual GitHub-hosted Linux execution, separate from the earlier local run.
+The [public task tracker](https://github.com/JiaruiTang/my-journal/blob/main/docs/tasks.md)
+was also verified through GitHub's contents API.
+
+This documentation follow-up records the verified implementation run. Subsequent
+commits trigger their own checks; the chat handoff reports the final observed run.
 
 ## Local handoff and remaining user actions
 
@@ -99,11 +116,8 @@ Implementation is committed as `e69d276`; the subsequent documentation-only comm
 records final evidence. The working application is at http://127.0.0.1:8080 and uses
 the development token documented in README. Start again with `docker compose up --build`.
 
-1. The user created and designated `https://github.com/JiaruiTang/my-journal.git`.
-   The repository is public and empty, local `origin` is configured, and the push
-   dry-run succeeded. Authorize pushing the committed `main` branch there, then
-   publish and verify the GitHub Actions run. No additional GitHub sign-in is
-   currently required for the local Git connection.
+1. Completed: the user-created public repository contains the committed project,
+   the authorized push succeeded, and the initial GitHub Actions run passed.
 2. Designate and authorize an existing static hosting account/project for the demo.
    Deploy the prepared artifact or connect the repository using netlify.toml.
 3. Verify the public HTTPS URL in two separate browser contexts: create, view, edit,
