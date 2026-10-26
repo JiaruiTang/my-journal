@@ -36,10 +36,13 @@ workspace was inspected and was empty; no earlier implementation was assumed.
 One Codex agent performed the logical roles sequentially. There were no delegated
 subagents, independent AI reviewers, or human sign-offs. Tests are executable
 deterministic checks; screenshot inspection is the same agent's visual review.
-No private journal data, credentials, or complete conversation transcripts were saved.
+No real private journal data, production credentials, or complete conversation transcripts were saved.
 No GitHub Issues, remote CI runs, public deployment, or incident recovery is fabricated.
 
 ## Commits
 
-Local implementation and evidence commit references are recorded after verification.
-No remote push is authorized; inspect `git log` for the authoritative local history.
+`e69d276` — Build verified My Journal MVP with PostgreSQL and isolated reviewer demo.
+Includes application, tests, migrations, Docker, CI, production configuration, and
+documentation. A subsequent documentation-only commit records this reference and
+the final artifact verification. No remote push occurred; inspect `git log` for
+the authoritative local history.

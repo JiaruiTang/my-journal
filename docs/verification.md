@@ -66,6 +66,14 @@ against the actual production bundle served by Vite preview, covering desktop/mo
 CRUD, milestones, refresh, literal text handling, and separate browser contexts.
 No journal API requests occurred. This is local artifact verification, not deployment.
 
+Archive SHA-256:
+`3b0ed2eff4cea9a63b8346f51762ecae8cfa03c0a54b38c6b91dbdc380825c58`.
+
+Final direct check confirmed the database contains only the three fictional seeds
+(all disposable browser/smoke records removed), `/health` is healthy, response headers
+include no-store for API data and frame protection, and neither development nor test
+access tokens are embedded in the compiled demo JavaScript.
+
 ![Verified browser-local demo](images/journal-desktop.png)
 
 ## Additional direct checks
@@ -83,3 +91,19 @@ No journal API requests occurred. This is local artifact verification, not deplo
 No public repository URL, public HTTPS deployment, remote GitHub Actions run,
 deployment rollback execution, metrics/traces UI, alert delivery, on-call agent,
 or completed peer reviews is claimed. Public submission readiness remains partial.
+
+## Local handoff and remaining user actions
+
+Implementation is committed as `e69d276`; the subsequent documentation-only commit
+records final evidence. The working application is at http://127.0.0.1:8080 and uses
+the development token documented in README. Start again with `docker compose up --build`.
+
+1. Designate an empty public GitHub repository URL and authorize pushing to that
+   exact destination. Then publish main and verify the GitHub Actions run.
+2. Designate and authorize an existing static hosting account/project for the demo.
+   Deploy the prepared artifact or connect the repository using netlify.toml.
+3. Verify the public HTTPS URL in two separate browser contexts: create, view, edit,
+   milestone/timeline, refresh, delete/cancel. Confirm no journal API requests or
+   shared data. Update README, deployment evidence, and rubric status with the URL.
+4. Submit the public repository/demo through the course platform and complete its
+   three required peer reviews. No course submission or peer review was performed here.

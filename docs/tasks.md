@@ -12,7 +12,7 @@ Statuses are evidence-based; public availability is blocked until repository pub
 | T5 | Compose starts all services; health and persistence verified | Verified: full build, three healthy services, restart persistence smoke |
 | T6 | Single-command unit/integration/frontend/browser suite passes | Verified: scripts/test.sh exit 0; 31 backend + 15 frontend + 6 browser tests |
 | T7 | CI config, production config, rollback and reproduction instructions | Partial: configuration and local checks complete; remote CI/deployment blocked |
-| T8 | Review code, verify evidence, commit; publish only if authorized | Local review and verification complete; local commit finalization; remote publishing blocked |
+| T8 | Review code, verify evidence, commit; publish only if authorized | Verified locally: implementation commit e69d276; remote publishing blocked |
 
 The first API browser run caught rejected edit metadata. The write contract was
 fixed and retested. Review also caught repeat seeding; migration 0002 and a regression
