@@ -3,6 +3,7 @@ on:
   push:
     branches: [main]
   pull_request:
+  workflow_dispatch:
 permissions:
   contents: read
 jobs:
@@ -27,6 +28,72 @@ jobs:
         if: always()
         with:
           name: browser-evidence
+          path: |
+            artifacts/
+            frontend/playwright-report/
+            frontend/test-results/
+  deploy-demo:
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    needs: test
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    concurrency:
+      group: github-pages
+      cancel-in-progress: false
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - name: Build isolated public demo
+        working-directory: frontend
+        env:
+          VITE_STORAGE_MODE: demo
+          VITE_BASE_PATH: /my-journal/
+        run: npm ci && npm run build
+      - name: Install browser
+        working-directory: frontend
+        run: npx playwright install --with-deps chromium
+      - name: Verify production demo under project path
+        working-directory: frontend
+        env:
+          E2E_PREVIEW: '1'
+          E2E_BASE_PATH: /my-journal/
+        run: npm run test:e2e
+      - name: Confirm personal website remains unpublished before deployment
+        run: python3 scripts/check_personal_site.py
+      - uses: actions/configure-pages@v6
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: frontend/dist
+      - name: Deploy public reviewer demo
+        id: deployment
+        uses: actions/deploy-pages@v5
+      - name: Wait for public HTTPS page
+        env:
+          DEMO_URL: ${{ steps.deployment.outputs.page_url }}
+        run: curl --fail --silent --show-error --retry 6 --retry-delay 5 --retry-all-errors --connect-timeout 5 --max-time 10 "$DEMO_URL" -o /tmp/journal-public.html
+      - name: Verify live public demo
+        working-directory: frontend
+        env:
+          E2E_BASE_URL: ${{ steps.deployment.outputs.page_url }}
+        run: npm run test:e2e
+      - name: Confirm personal website still returns 404 after deployment
+        if: always() && steps.deployment.outcome == 'success'
+        run: python3 scripts/check_personal_site.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: public-demo-browser-evidence
           path: |
             artifacts/
             frontend/playwright-report/

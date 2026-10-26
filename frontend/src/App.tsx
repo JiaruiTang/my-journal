@@ -95,7 +95,7 @@ export default function App() {
     finally { setBusy(false); }
   }
   return <div className="app-shell">
-    <header className="site-header"><a className="brand" href="/" aria-label="My Journal home"><span className="brand-icon"><Icon name="book" size={25}/></span><span>my journal<span className="brand-dot">.</span></span></a>
+    <header className="site-header"><a className="brand" href={import.meta.env.BASE_URL} aria-label="My Journal home"><span className="brand-icon"><Icon name="book" size={25}/></span><span>my journal<span className="brand-dot">.</span></span></a>
       <span className="header-note">a little space, just for you</span><span className="edition">YOUR EVERYDAY NOTEBOOK</span></header>
     <main>
       <section className="intro"><div><div className="eyebrow"><span/>THE BEAUTY IN THE EVERYDAY</div><h1>Every day deserves<br/>a <em>page.</em></h1><p>Ordinary moments. Small victories. New beginnings.<br className="desktop-break"/> A place for everything that makes you, you.</p></div>

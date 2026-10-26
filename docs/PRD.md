@@ -37,6 +37,10 @@ timeline. Course reviewers can try fictional entries without an account.
     fictional examples automatically, and persists database records across restarts.
 11. `./scripts/test.sh` runs backend unit/integration, frontend unit, and browser flows.
 12. Actual verification, unresolved blockers, and rubric evidence are documented.
+13. Public demo is served without an account at
+    `https://jiaruitang.github.io/my-journal/`. The personal-site root at
+    `https://jiaruitang.github.io/` must continue returning HTTP 404, verified before
+    and after publication. Do not change the personal website's repository/settings.
 
 ## Non-goals
 

@@ -2,7 +2,7 @@ import { expect, test, type Page } from '@playwright/test';
 
 const api = process.env.E2E_MODE === 'api';
 async function openJournal(page: Page) {
-  await page.goto('/');
+  await page.goto('./');
   if (api) {
     await page.getByLabel('Access token', { exact: true }).fill(process.env.API_TOKEN ?? 'local-development-token-change-before-hosting');
     await page.getByRole('button', { name: 'Connect to journal' }).click();
@@ -11,10 +11,13 @@ async function openJournal(page: Page) {
   await expect(page.getByText('Opening your notebook…')).toHaveCount(0);
 }
 
-test('journal CRUD, milestone timeline, refresh, confirmation and literal content', async ({ page }, testInfo) => {
+test('journal CRUD, milestone timeline, refresh, confirmation and literal content', async ({ page, baseURL }, testInfo) => {
   const failures: string[] = [];
   page.on('pageerror', error => failures.push(error.message));
   await openJournal(page);
+  await page.getByRole('link', { name: 'My Journal home' }).click();
+  await expect(page.getByRole('button', { name: 'New entry' })).toBeEnabled();
+  expect(new URL(page.url()).pathname).toBe(new URL(baseURL!).pathname);
   const title = `A fictional browser test ${testInfo.project.name} ${Date.now()}`;
   await page.getByRole('button', { name: 'New entry' }).click();
   await page.getByLabel('Title', { exact: true }).fill(title);
@@ -49,7 +52,7 @@ test('journal CRUD, milestone timeline, refresh, confirmation and literal conten
   await page.screenshot({ path: `../artifacts/${api ? 'api' : 'demo'}-${testInfo.project.name}.png`, fullPage: true, animations: 'disabled' });
 });
 
-test('demo separates contexts and never calls journal API', async ({ page, browser }) => {
+test('demo separates contexts and never calls journal API', async ({ page, browser, baseURL }) => {
   test.skip(api, 'Isolation here is the browser-local demo contract; API is a single private notebook.');
   const calls: string[] = [];
   page.on('request', request => { if (request.url().includes('/api/')) calls.push(request.url()); });
@@ -61,7 +64,7 @@ test('demo separates contexts and never calls journal API', async ({ page, brows
   await expect(page.getByRole('button', { name: 'Read Only in browser one', exact: true })).toBeVisible();
   const secondContext = await browser.newContext();
   const second = await secondContext.newPage();
-  await second.goto('http://127.0.0.1:4173/');
+  await second.goto(baseURL!);
   await expect(second.getByRole('button', { name: 'Read A little room to begin', exact: true })).toBeVisible();
   await expect(second.getByRole('button', { name: 'Read Only in browser one', exact: true })).toHaveCount(0);
   expect(calls).toEqual([]);

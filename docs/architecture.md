@@ -37,3 +37,12 @@ has no category. PATCH validates the merged record, not only supplied fields.
 The same frontend builds as a static browser-local demo. The full stack can be
 deployed to a Docker-capable host with PostgreSQL and a private API configuration.
 See deployment.md for configuration, smoke checks, rollback, and authorization gates.
+
+For the deadline, the authorized public target is the free GitHub Pages project
+site at `/my-journal/`. `VITE_BASE_PATH` selects that path for static assets and the
+home link, while Docker keeps `/`. Deployment is gated by the full CI test job and
+production browser tests under the subpath; live anonymous browser tests run after
+publication. No FastAPI service or private PostgreSQL data is deployed to Pages.
+The personal-site root must remain unpublished (HTTP 404). A read-only guard runs
+before and after project-site deployment; only the `my-journal` repository's Pages
+settings are configured. The two sites use separate repositories/deployments.
