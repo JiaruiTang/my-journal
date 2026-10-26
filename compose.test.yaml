@@ -1,0 +1,26 @@
+# Ephemeral, isolated PostgreSQL. This never truncates the development database.
+services:
+  db_test:
+    image: postgres:17-alpine
+    command: ["postgres", "-c", "log_error_verbosity=terse", "-c", "log_min_error_statement=panic"]
+    environment:
+      POSTGRES_USER: journal
+      POSTGRES_PASSWORD: ephemeral-test-only
+      POSTGRES_DB: journal_test
+    tmpfs:
+      - /var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U journal -d journal_test"]
+      interval: 2s
+      timeout: 3s
+      retries: 20
+  tests:
+    build: ./backend
+    environment:
+      DATABASE_URL: postgresql+psycopg://journal:ephemeral-test-only@db_test:5432/journal_test
+      TEST_DATABASE_URL: postgresql+psycopg://journal:ephemeral-test-only@db_test:5432/journal_test
+      API_TOKEN: test-access-token-at-least-24-characters
+    depends_on:
+      db_test:
+        condition: service_healthy
+    command: ["sh", "-c", "alembic upgrade head && pytest -q"]
