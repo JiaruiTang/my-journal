@@ -2,13 +2,13 @@
 
 ## Current external blocker
 
-The user designated the GitHub account `JiaruiTang` and authorized creating a
-repository. The implementation choice is a public `JiaruiTang/my-journal`, matching
-the handoff's public-repository requirement. Creation is awaiting GitHub authentication:
-the available browser reached GitHub's sign-in page; the GitHub integration is not
-installed/connected. No repository has been created or pushed yet. Push authorization
-and an authorized hosting destination remain outstanding. No cloud resources were
-provisioned and no public URL is claimed. The available Sites hosting
+The user created and designated the public repository
+[JiaruiTang/my-journal](https://github.com/JiaruiTang/my-journal). Its empty state was
+verified with `git ls-remote`, and the local `origin` points to its HTTPS clone URL.
+`git push --dry-run origin main` succeeded using available Git credentials; this
+did not upload commits or create a remote branch. Explicit push approval required by
+the handoff and an authorized hosting destination remain outstanding. No cloud
+resources were provisioned and no deployed application URL is claimed. The available Sites hosting
 runtime is Cloudflare Workers and cannot host this Python/PostgreSQL stack directly;
 it can host the browser-local demo once a destination/publication is authorized.
 
@@ -18,12 +18,10 @@ The handoff explicitly permits a browser-local demo alongside a fully functionin
 PostgreSQL local stack. This keeps anonymous reviewers isolated without accounts.
 The same frontend components and contracts are used in both modes.
 
-1. Complete GitHub sign-in in the prepared browser panel (or install/connect the
-   GitHub integration). Repository creation under `JiaruiTang` is authorized; Codex
-   can create the proposed empty public `my-journal` repository after authentication.
-   Review the committed repository for secrets before publishing its contents.
-2. Authorize pushing main to that exact URL. A local commit already exists only
-   if recorded in the verification/AI report; do not assume it was pushed.
+1. The public repository exists and is configured as `origin`. Local implementation,
+   tests, and evidence are committed; the publication preflight passed.
+2. Authorize pushing `main` to `https://github.com/JiaruiTang/my-journal.git`.
+   After approval, push and verify the remote commit and GitHub Actions results.
 3. Choose an existing approved static host/account. `netlify.toml` supplies the
    build command, output directory, demo environment, redirects and security headers,
    following [Netlify's file configuration reference](https://docs.netlify.com/build/configure-builds/file-based-configuration/).

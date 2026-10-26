@@ -42,8 +42,10 @@ and keeps that volume. Do not remove the volume if you want to retain entries.
 
 ## Reviewer demo and privacy
 
-**Public HTTPS URL: not deployed.** No public repository or hosting destination
-has been designated and authorized. See [deployment instructions](docs/deployment.md).
+**Public HTTPS URL: not deployed.** The user-created public repository is
+[JiaruiTang/my-journal](https://github.com/JiaruiTang/my-journal); project contents
+are prepared locally and awaiting push approval. Hosting is not yet designated.
+See [deployment instructions](docs/deployment.md).
 
 The static production demo uses the **same React application** with a browser-local
 storage adapter. It starts with fictional examples and requires no account. Each

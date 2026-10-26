@@ -88,7 +88,8 @@ access tokens are embedded in the compiled demo JavaScript.
 
 ## Unverified / external
 
-No public repository URL, public HTTPS deployment, remote GitHub Actions run,
+The user-created public repository URL is verified, but implementation commits have
+not been uploaded. No public HTTPS deployment, remote GitHub Actions run,
 deployment rollback execution, metrics/traces UI, alert delivery, on-call agent,
 or completed peer reviews is claimed. Public submission readiness remains partial.
 
@@ -98,10 +99,11 @@ Implementation is committed as `e69d276`; the subsequent documentation-only comm
 records final evidence. The working application is at http://127.0.0.1:8080 and uses
 the development token documented in README. Start again with `docker compose up --build`.
 
-1. The user has now designated `JiaruiTang` and authorized repository creation.
-   Complete GitHub authentication so Codex can create the proposed public
-   `JiaruiTang/my-journal` repository. Authorize pushing the verified project to
-   that exact destination; then publish main and verify the GitHub Actions run.
+1. The user created and designated `https://github.com/JiaruiTang/my-journal.git`.
+   The repository is public and empty, local `origin` is configured, and the push
+   dry-run succeeded. Authorize pushing the committed `main` branch there, then
+   publish and verify the GitHub Actions run. No additional GitHub sign-in is
+   currently required for the local Git connection.
 2. Designate and authorize an existing static hosting account/project for the demo.
    Deploy the prepared artifact or connect the repository using netlify.toml.
 3. Verify the public HTTPS URL in two separate browser contexts: create, view, edit,
